@@ -1,24 +1,35 @@
 {
   "compilerOptions": {
+    // Language and runtime target
     "target": "ES2017",
     "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+
+    // Type safety and correctness
     "strict": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
     "noEmit": true,
-    "incremental": true,
+
+    // Module system and bundling behavior
     "module": "esnext",
-    "esModuleInterop": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "isolatedModules": true,
+    "esModuleInterop": true,
+
+    // JSX and framework integration
     "jsx": "react-jsx",
-    "plugins": [
-      {
-        "name": "next"
-      }
-    ]
+    "plugins": [{ "name": "next" }],
+
+    // Developer experience and build performance
+    "allowJs": true,
+    "incremental": true,
+
+    // Path aliases and project structure
+    "baseUrl": ".",
+    "paths": { "@/*": ["src/*"] }
   },
+
+  // Project file boundaries
   "include": [
     "next-env.d.ts",
     ".next/types/**/*.ts",

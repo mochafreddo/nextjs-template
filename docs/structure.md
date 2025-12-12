@@ -5,7 +5,7 @@ The structure is designed to make incremental growth predictable: start small, a
 
 ## Top-level layout
 
-```
+```text
 src/
   app/
     layout.tsx
@@ -42,6 +42,7 @@ Next.js supports `src/` natively, so this adds no runtime cost.
 - route groups and segments (`(marketing)/`, `[id]/`)
 - loading/error boundaries (`loading.tsx`, `error.tsx`, `not-found.tsx`)
 - route-local styles when appropriate (e.g., `page.module.css`)
+- global CSS entry points when required (e.g., `globals.css`, imported from `app/layout.tsx`)
 
 **Rule of thumb:** if a file exists because of routing, it belongs in `app/`.
 If a file exists because of UI reuse or business logic, it does not.
@@ -84,6 +85,16 @@ Examples:
 
 Global CSS entry points still live under `app/` per Next.js conventions (e.g., `app/globals.css`).
 As styling grows, shared assets can live in `styles/` and be imported from `app/globals.css`.
+
+## Import aliases (`@/`)
+
+To keep imports readable and avoid deep relative paths (`../../../`), this template uses an `@/` alias for code under `src/`.
+
+Examples:
+
+- `@/components/Button`
+- `@/lib/formatDate`
+- `@/styles/tokens.css`
 
 ## Alternatives considered
 
